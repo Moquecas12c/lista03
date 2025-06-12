@@ -1,0 +1,44 @@
+lista_de_compras = []
+acao = ""
+while(acao != "E por hoje é só, pessoal!"):  
+    acao = input()
+  
+    if(acao == "Anotar ingrediente"):
+        ingrediente = input()
+        lista_de_compras.append(ingrediente)
+    elif(acao == "Ingrediente Urgente!"):
+        ingrediente = input()
+        lista_de_compras.insert(0, ingrediente)
+    elif(acao == "Saci disse que já tem"):
+        ingrediente = input()
+        lista_de_compras.remove(ingrediente)
+    elif(acao == "Saci trocou a ordem"):
+        index_inicial = int(input())
+        index_final = int(input())
+        inicial = lista_de_compras[index_inicial]
+        lista_de_compras[index_inicial] = lista_de_compras[index_final]
+        lista_de_compras[index_final] = inicial
+    elif(acao == "Organizar a lista"):
+        inicial = input()
+        final = input()
+        index_inicial = lista_de_compras.index(inicial)
+        index_final = lista_de_compras.index(final)
+        lista_de_compras[index_inicial] = lista_de_compras[index_final]
+        lista_de_compras[index_final] = inicial
+    elif(acao == "Deixar para depois"):
+        ingrediente = input()
+        lista_de_compras.remove(ingrediente)
+        lista_de_compras.append(ingrediente)
+    elif(acao == "Ler a lista para a vovó"):
+        for ingrediente in lista_de_compras:
+            if(ingrediente != lista_de_compras[len(lista_de_compras)-1]):
+                print(ingrediente, end=", ")
+            else:
+                print(ingrediente)
+print("Pronto, vovó! A lista de compras para o bolo de Narizinho está pronta. Podemos ir ao mercado. A lista final é:", end=" ")
+for ingrediente in lista_de_compras:
+        if(ingrediente != lista_de_compras[len(lista_de_compras)-1]):
+            print(ingrediente, end=", ")
+        else:
+            print(ingrediente)
+
