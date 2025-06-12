@@ -13,7 +13,7 @@ while(criatura < qtd and not morreu):
   niveis.append(nivel)
   venceu = False
 
-  if(nivel[criatura] > n_jinwoo):
+  if(niveis[criatura] > n_jinwoo):
     morreu = True
     print(f"Jin-Woo foi derrotado por {nomes[criatura]}...")
   else:
@@ -23,10 +23,16 @@ while(criatura < qtd and not morreu):
     resposta = input()
     if(resposta == "Erga-se"):
       n_jinwoo += (niveis[criatura]//3)
-    else:
+      exercito[criatura] = nomes[criatura]
   criatura += 1
 if(not morreu):
   print("Jin-Woo sobreviveu à caçada, um verdadeiro Monarca das Sombras mesmo!")
 print("===== Exército das Sombras de Jin-Woo =====")
-
-  
+if(len(exercito) == 0):
+  print("Jin-Woo não conseguiu formar seu exército...")
+else:
+  for soldado in exercito:
+    once = []
+    if(once.count(soldado) == 0):
+      once.append(soldado)
+      print(f"{soldado}: {exercito.count(soldado)}")
